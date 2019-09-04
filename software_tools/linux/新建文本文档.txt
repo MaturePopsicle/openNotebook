@@ -1,0 +1,6 @@
+vim
+bash
+samba
+tftp
+nfs
+share

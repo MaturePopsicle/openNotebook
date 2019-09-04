@@ -1,0 +1,48 @@
+
+
+/mnt/config/wpa_supplicant.conf
+保存了网络帐号和密码
+
+
+
+
+qstring中怎样加\t
+
+
+怎样将视频显示放到fb0
+
+将QT放到fb1
+/etc/profile里面设置QT显示在哪一层
+
+/home/tsh/bin/sendapi
+一个应用，里面包括无界面标定程序。
+带参数 ./sendapi c 0 1
+
+相关密码 1或者2
+	一个是直线标定，一个是铺布标定
+	
+	
+
+cat /dev/urander > /dev/fb0 将fb0覆盖，看QT界面是否还显示
+
+
+显示
+测试label区域是否能显示视频
+
+
+cat /sys/class/graphysics/fb0/mode
+出现:
+	U:1920x720p-60
+
+cat /sys/class/video4linux/video16/name
+出现：
+	DISP3 BG
+cat /sys/class/video4linux/video17/name
+出现：
+	DISP3 FG
+	
+video16 has the same physical buffer as fb0
+video17 has the same physical buffer as fb1
+
+
+

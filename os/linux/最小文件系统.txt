@@ -1,0 +1,8 @@
+
+	一个最简单的文件系统至少需要包括：
+		/sbin	
+		/bin
+		/dev	需要console和ttyS0两个文件
+		/proc
+		/etc	需要inittab和rcS文件
+		/home

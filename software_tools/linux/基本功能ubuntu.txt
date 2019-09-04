@@ -1,0 +1,12 @@
+
+
+1、SVN(subversion)
+2、git
+3、sublime text3
+4、eclipse for c/c++
+	java jdk
+5、slickedit
+6、nfs、samba、tftp
+7、ssh(openssh-server)(for winSCP)
+8、vim .vimrc
+9、QT

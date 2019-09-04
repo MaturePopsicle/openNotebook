@@ -1,0 +1,125 @@
+1、inittab中启动tshserver脚本
+		tsh::sysinit:/home/tsh/bin/tshserver
+		
+2、tshserver中：一系列设置，之后启动tshdelay脚本
+	LIBTVDECODER=/home/tsh/lib/libtvdecoder.so	
+
+	###设置一些全局环境变量
+	#echo "===== TSH 360 System ====="
+	export TSH_DISABLE_3DVIEW=1
+	export TSH_ENABLE_HANGSHENG_STYLE_TRACK=1
+	export FB_MULTI_BUFFER=3
+	export GPU_VIV_DISABLE_CLEAR_FB=1
+	export QT_QPA_PLATFORM=eglfs
+	export QT_QPA_EGLFS_FB=/dev/fb0
+	export QT_QPA_EVDEV_KEYBOARD_PARAMETERS=repeat-delay\=100:repeat-rate\=333
+	export QT_QPA_GENERIC_PLUGINS=evdevtouch:/dev/input/event0
+	# export QT_QPA_EGLFS_DISABLE_INPUT=1
+	# export VPU_LIB_DBG=10
+
+	chmod 666 /dev/mxc*
+	mkdir -p /dev/shm
+
+	ln -sf libtvdecoder_h.so $LIBTVDECODER
+	
+	###加载一些驱动模块
+	insmod /home/tsh/modules/vinput.ko &
+	insmod /home/tsh/modules/eventkey.ko &
+	#insmod /home/tsh/modules/mxc_cap.ko
+	#insmod /home/tsh/modules/hd_mipi.ko
+	insmod /home/tsh/modules/xd_mipi.ko
+
+	###启动tshdelay脚本
+	/home/tsh/bin/tshdelay &
+	
+3、tshdelay脚本
+	#!/bin/sh
+	
+	###运行tshproxy程序，由参数可以看出，占用了ttymxc1设备，该设备是MCU与DSP通信的uart串口
+	/home/tsh/bin/tshproxy --protocol=4 --serial=/dev/ttymxc1 --logfile=on,2,1 &
+	sleep 0.01
+	
+	###运行switch程序
+	/home/tsh/bin/switch > /home/tsh/log/tshmain.log 2>&1 &
+	sleep 5
+
+	if [ ! -e /var/lib/dbus/machine-id ] ; then
+		mkdir -p /var/lib/dbus
+		dbus-uuidgen --ensure
+	fi
+
+	/etc/init.d/udev-bak start
+	/etc/init.d/urandom-bak start
+	/home/tsh/bin/tshupdate &
+	modprobe g_ether
+	ifconfig lo 127.0.0.1 up
+	sleep 0.3
+	ifup usb0
+
+	/home/tsh/bin/tsh_update.sh > /home/tsh/log/tsh_update.log 2>&1 &
+	
+	
+#############################tshmain.log###############################
+>>> System  : V2.20-20170915 <<<
+>>> tshmain : Custom Version For HangSheng 1.2.4 <<<
+GTXX : Sep 14 2017 -- 09:15:44
+Screen size  : 1920 x 720
+EGL Vendor   : Vivante Corporation
+EGL Version  : 1.4
+GL Render    : Vivante GC2000
+GL Version   : OpenGL ES 3.0 V5.0.11.p7.33433
+Couldnt load module input
+No raw modules loaded.
+EGL Window   : 1920 x 720
+GlobalVariables_Init 0 0 
+TSH_TVDecoder_Init 
+GlobalVariables_Init 0 1 
+  LD : 500 1400 3000
+  LM : 1 1
+  M2 : 30.0,75.0,0.0,45.0
+  M3 : 0.3,0.8,0.1,0.5
+  CM : enable=0 sz=[720x480]
+  CP : 352.0 240.0, 202.0 181.0
+tshmain: TshComm_Init success.
+Add [1][/dev/input/event0] key
+Add [2][/dev/input/event0] ts : MAX_ABS=[1920x720]
+####################TVDecoderMain::connect 0 
+no connectedstartTVDecoder Height 1440
+index: 0, mem: 70cf8000, len: 708000, offset: 26800000 26800000 
+index: 1, mem: 705f0000, len: 708000, offset: 27000000 27000000 
+index: 2, mem: 6fee8000, len: 708000, offset: 27800000 27800000 
+index: 3, mem: 6f7e0000, len: 708000, offset: 24000000 24000000 
+S_TSHLDWSThread_Linux Thread Start 
+S_TSHBSDSThread_Linux Thread Start 
+S_TVDecoderMainThread_Linux beginS_TVDecoderSubThread1_Linux beginVideoEncThread_Init: endS_TVDecoderSubThread2_Linux beginS_TVDecoderSubThread_Linux beginLoad LUT[/home/tsh/1_tianshuang/merger_lut_image.tsh] [556 x 1440].
+Generate FB LUT [1234 x 1440].
+GetPreviewFrame: VIDIOC_DQBUF FailedGenerate LR LUT [614 x 2880].
+Generate WS LUT [1796 x 1440].
+GetPreviewFrame: VIDIOC_DQBUF FailedThere is no video and set to 30fps
+Thread record start...
+Thread misc start...
+rec path : /run/media/mmcblk1p1/
+##########################################################################
+	
+	
+	
+	
+**********************************************
+*       App Name   : switch
+*       App Version: 1.0.3.1
+*       Build Time : 2017-08-16 08:51:57 CST
+*       Start Time : 1970/01/01 00:02:42
+**********************************************
+[ERROR] TshComm_Init  error.
+[DEBUG] buffer=V2.20-20170915
+
+[DEBUG] idx1=0  idx2=13
+[INFO] nHighV=0x02 nLowV=0x14 nYear=2017 nMonth=9 nMday=15.
+[DEBUG] Main thread: init push a inner msg into msgqueue.
+[DEBUG] fork thread: create a new process tshmain(pid=648). time: 1970-01-01 00:02:42.404928
+[DEBUG] fork thread g_nAppState=1
+[INFO] current app is tshmain.
+[DEBUG] fork thread suspend.
+
+	
+	

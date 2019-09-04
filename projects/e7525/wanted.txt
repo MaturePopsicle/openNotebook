@@ -1,0 +1,724 @@
+
+
+2017-09-21
+	MFGTOOLV2
+
+	#!/bin/bash
+	source /opt/fsl-imx-fb/3.14.52-1.1.0/environment-setup-cortexa9hf-vfp-neon-poky-linux-gnueabi
+	cd uboot-imx
+	make mx6qhsaev2_defconfig
+	make
+
+
+
+
+
+
+
+
+
+
+2017-09-20
+		kernel 3.14.52
+		uboot ?
+		download the source code 
+
+		'ctags' source code tools
+
+
+
+
+
+
+
+
+
+
+
+
+2017-09-16
+		1、	regulator_init_complete: PFUZE100_VGEN1: incomplete constraints, leaving on
+			snvs_rtc snvs_rtc.0: setting system clock to 1970-01-01 00:05:52 UTC (352)
+
+		2、	imx6q
+			arm2
+
+
+		3、	Starting kernel ...
+
+			Uncompressing Linux... done, booting the kernel.
+			Linux version 3.0.35-2666-gbdde708 (work@ubuntu) (gcc version 4.6.2 20110630 (prerelease) (Freescale MAD -- Linaro 2011.07 -- Built at 2011/08/10 09:20) ) #3 SMP PREEMPT Wed Sep 6 17:44:48 CST 2017
+			CPU: ARMv7 Processor [412fc09a] revision 10 (ARMv7), cr=10c53c7d
+			CPU: VIPT nonaliasing data cache, VIPT aliasing instruction cache
+			Machine: Freescale i.MX 6Quad/DualLite/Solo Sabre-SD Board
+			Ignoring unrecognised tag 0x54410008
+			Memory policy: ECC disabled, Data cache writealloc
+			CPU identified as i.MX6Q, unknown revision
+			PERCPU: Embedded 7 pages/cpu @8c008000 s5440 r8192 d15040 u32768
+			Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 194560
+			Kernel command line: noinitrd console=ttymxc0,115200 root=/dev/mtdblock2 rw rootfstype=ext4 ip=off
+			PID hash table entries: 4096 (order: 2, 16384 bytes)
+			Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+			Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+			Memory: 512MB 256MB = 768MB total
+			Memory: 765764k/765764k available, 282812k reserved, 0K highmem
+			Virtual kernel memory layout:
+				vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+				fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+				DMA     : 0xf4600000 - 0xffe00000   ( 184 MB)
+				vmalloc : 0xc0800000 - 0xf2000000   ( 792 MB)
+				lowmem  : 0x80000000 - 0xc0000000   (1024 MB)
+				pkmap   : 0x7fe00000 - 0x80000000   (   2 MB)
+				modules : 0x7f000000 - 0x7fe00000   (  14 MB)
+				  .init : 0x80008000 - 0x8003c000   ( 208 kB)
+				  .text : 0x8003c000 - 0x80a8f8f4   (10575 kB)
+				  .data : 0x80a90000 - 0x80af3e40   ( 400 kB)
+				   .bss : 0x80af3e64 - 0x80b41d8c   ( 312 kB)
+			SLUB: Genslabs=13, HWalign=32, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+			Preemptible hierarchical RCU implementation.
+			NR_IRQS:624
+			MXC GPIO hardware
+			sched_clock: 32 bits at 3000kHz, resolution 333ns, wraps every 1431655ms
+			arm_max_freq=1GHz
+			MXC_Early serial console at MMIO 0x2020000 (options '115200')
+			bootconsole [ttymxc0] enabled
+			Console: colour dummy device 80x30
+			Calibrating delay loop... 1581.05 BogoMIPS (lpj=7905280)
+			pid_max: default: 32768 minimum: 301
+			Mount-cache hash table entries: 512
+			CPU: Testing write buffer coherency: ok
+			hw perfevents: enabled with ARMv7 Cortex-A9 PMU driver, 7 counters available
+			CPU1: Booted secondary processor
+			CPU2: Booted secondary processor
+			CPU3: Booted secondary processor
+			Brought up 4 CPUs
+			SMP: Total of 4 processors activated (6324.22 BogoMIPS).
+			print_constraints: dummy:
+			NET: Registered protocol family 16
+			print_constraints: vddpu: 725 <--> 1300 mV at 700 mV fast normal
+			print_constraints: vddcore: 725 <--> 1300 mV at 1150 mV fast normal
+			print_constraints: vddsoc: 725 <--> 1300 mV at 1200 mV fast normal
+			print_constraints: vdd2p5: 2000 <--> 2775 mV at 2400 mV fast normal
+			print_constraints: vdd1p1: 800 <--> 1400 mV at 1100 mV fast normal
+			print_constraints: vdd3p0: 2625 <--> 3400 mV at 3000 mV fast normal
+			hw-breakpoint: found 6 breakpoint and 1 watchpoint registers.
+			hw-breakpoint: 1 breakpoint(s) reserved for watchpoint single-step.
+			hw-breakpoint: maximum watchpoint size is 4 bytes.
+			L310 cache controller enabled
+			l2x0: 16 ways, CACHE_ID 0x410000c7, AUX_CTRL 0x02070000, Cache size: 1048576 B
+			bio: create slab <bio-0> at 0
+			mxs-dma mxs-dma-apbh: initialized
+			print_constraints: SPKVDD: 4200 mV
+			print_constraints: vmmc: 3300 mV
+			SCSI subsystem initialized
+			spi_imx imx6q-ecspi.0: probed
+			usbcore: registered new interface driver usbfs
+			usbcore: registered new interface driver hub
+			usbcore: registered new device driver usb
+			Freescale USB OTG Driver loaded, $Revision: 1.55 $
+			mc_pfuze 1-0008: ID: 0,Full lay: 2 ,Metal lay: 1
+			mc_pfuze 1-0008: FAB: 0 ,FIN: 0
+			print_constraints: PFUZE100_SW1A: 300 <--> 1875 mV at 1300 mV
+			print_constraints: PFUZE100_SW1B: 300 <--> 1875 mV at 300 mV
+			print_constraints: PFUZE100_SW1C: 300 <--> 1875 mV at 1300 mV
+			print_constraints: PFUZE100_SW2: 800 <--> 3950 mV at 3300 mV
+			print_constraints: PFUZE100_SW3A: 400 <--> 1975 mV at 1500 mV
+			print_constraints: PFUZE100_SW3B: 400 <--> 1975 mV at 1500 mV
+			print_constraints: PFUZE100_SW4: 800 <--> 3950 mV at 3150 mV
+			print_constraints: PFUZE100_SWBST: 5000 <--> 5150 mV at 5000 mV
+			print_constraints: PFUZE100_VSNVS: 1200 <--> 3000 mV at 1800 mV
+			print_constraints: PFUZE100_VREFDDR: at 750 mV
+			print_constraints: PFUZE100_VGEN1: 800 <--> 1550 mV at 1500 mV
+			print_constraints: PFUZE100_VGEN2: 800 <--> 1550 mV at 1500 mV
+			print_constraints: PFUZE100_VGEN3: 1800 <--> 3300 mV at 2800 mV
+			print_constraints: PFUZE100_VGEN4: 1800 <--> 3300 mV at 1800 mV
+			print_constraints: PFUZE100_VGEN5: 1800 <--> 3300 mV at 3000 mV
+			print_constraints: PFUZE100_VGEN6: 1800 <--> 3300 mV at 3300 mV
+			imx-ipuv3 imx-ipuv3.0: IPU DMFC NORMAL mode: 1(0~1), 5B(4,5), 5F(6,7)
+			imx-ipuv3 imx-ipuv3.1: IPU DMFC NORMAL mode: 1(0~1), 5B(4,5), 5F(6,7)
+			mxc_mipi_csi2 mxc_mipi_csi2: i.MX MIPI CSI2 driver probed
+			mxc_mipi_csi2 mxc_mipi_csi2: i.MX MIPI CSI2 dphy version is 0x3130302a
+			MIPI CSI2 driver module loaded
+			Advanced Linux Sound Architecture Driver Version 1.0.24.
+			Bluetooth: Core ver 2.16
+			NET: Registered protocol family 31
+			Bluetooth: HCI device and connection manager initialized
+			Bluetooth: HCI socket layer initialized
+			Bluetooth: L2CAP socket layer initialized
+			Bluetooth: SCO socket layer initialized
+			cfg80211: Calling CRDA to update world regulatory domain
+			max17135 2-0048: PMIC MAX17135 for eInk display
+			i2c-core: driver [max17135] using legacy suspend method
+			i2c-core: driver [max17135] using legacy resume method
+			Switching to clocksource mxc_timer1
+			NET: Registered protocol family 2
+			IP route cache hash table entries: 32768 (order: 5, 131072 bytes)
+			TCP established hash table entries: 131072 (order: 8, 1048576 bytes)
+			TCP bind hash table entries: 65536 (order: 7, 786432 bytes)
+			TCP: Hash tables configured (established 131072 bind 65536)
+			TCP reno registered
+			UDP hash table entries: 512 (order: 2, 16384 bytes)
+			UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+			NET: Registered protocol family 1
+			RPC: Registered named UNIX socket transport module.
+			RPC: Registered udp transport module.
+			RPC: Registered tcp transport module.
+			RPC: Registered tcp NFSv4.1 backchannel transport module.
+			PMU: registered new PMU device of type 0
+			Static Power Management for Freescale i.MX6
+			wait mode is enabled for i.MX6
+			cpaddr = c0880000 suspend_iram_base=c091c000
+			PM driver module loaded
+			IMX usb wakeup probe
+			add wake up source irq 75
+			IMX usb wakeup probe
+			cpu regulator mode:ldo_bypass
+			_regulator_get: get() with no identifier
+			mx6_cpu_regulator_init: failed to get pu regulator
+			i.MXC CPU frequency driver
+			JFFS2 version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+			msgmni has been set to 1495
+			alg: No test for stdrng (krng)
+			io scheduler noop registered
+			io scheduler deadline registered
+			io scheduler cfq registered (default)
+			mxc_mipi_dsi mxc_mipi_dsi: i.MX MIPI DSI driver probed
+			MIPI DSI driver module loaded
+			mxc_sdc_fb mxc_sdc_fb.0: register mxc display driver ldb
+			_regulator_get: get() with no identifier
+			imx-ipuv3 imx-ipuv3.1: IPU DMFC DP HIGH RESOLUTION: 1(0,1), 5B(2~5), 5F(6,7)
+			Console: switching to colour frame buffer device 128x48
+			mxc_sdc_fb mxc_sdc_fb.1: register mxc display driver ldb
+			mxc_sdc_fb mxc_sdc_fb.2: register mxc display driver lcd
+			mxc_sdc_fb mxc_sdc_fb.3: register mxc display driver ldb
+			mxc_sdc_fb mxc_sdc_fb.3: ipu1-di0 already in use
+			mxc_sdc_fb: probe of mxc_sdc_fb.3 failed with error -16
+			imx-sdma imx-sdma: loaded firmware 1.1
+			imx-sdma imx-sdma: initialized
+			Serial: IMX driver
+			imx-uart.2: ttymxc2 at MMIO 0x21ec000 (irq = 60) is a IMX
+			imx-uart.0: ttymxc0 at MMIO 0x2020000 (irq = 58) is a IMX
+			console [ttymxc0] enabled, bootconsole disabled
+			console [ttymxc0] enabled, bootconsole disabled
+			loop: module loaded
+			No sata disk.
+			m25p80 spi0.0: unrecognized JEDEC id ffffff
+			GPMI NAND driver registered. (IMX)
+			vcan: Virtual CAN interface driver
+			CAN device driver interface
+			flexcan netdevice driver
+			FEC Ethernet Driver
+			fec_enet_mii_bus: probed
+			ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+			fsl-ehci fsl-ehci.0: Freescale On-Chip EHCI Host Controller
+			fsl-ehci fsl-ehci.0: new USB bus registered, assigned bus number 1
+			fsl-ehci fsl-ehci.0: irq 75, io base 0x02184000
+			fsl-ehci fsl-ehci.0: USB 2.0 started, EHCI 1.00
+			hub 1-0:1.0: USB hub found
+			hub 1-0:1.0: 1 port detected
+			add wake up source irq 72
+			fsl-ehci fsl-ehci.1: Freescale On-Chip EHCI Host Controller
+			fsl-ehci fsl-ehci.1: new USB bus registered, assigned bus number 2
+			fsl-ehci fsl-ehci.1: irq 72, io base 0x02184200
+			fsl-ehci fsl-ehci.1: USB 2.0 started, EHCI 1.00
+			hub 2-0:1.0: USB hub found
+			hub 2-0:1.0: 1 port detected
+			Initializing USB Mass Storage driver...
+			usbcore: registered new interface driver usb-storage
+			USB Mass Storage support registered.
+			ARC USBOTG Device Controller driver (1 August 2005)
+			mousedev: PS/2 mouse device common for all mice
+			input: gpio-keys as /devices/platform/gpio-keys/input/input0
+			input: max11801_ts as /devices/platform/imx-i2c.1/i2c-1/1-0048/input/input1
+			egalax_ts 1-0004: egalax_ts: failed to read firmware version
+			egalax_ts: probe of 1-0004 failed with error -5
+			egalax_ts 2-0004: egalax_ts: failed to read firmware version
+			egalax_ts: probe of 2-0004 failed with error -5
+			elan - Read Hello Packet Failed
+			elan-touch: probe of 2-0010 failed with error -22
+			i2c-core: driver [isl29023] using legacy suspend method
+			i2c-core: driver [isl29023] using legacy resume method
+			snvs_rtc snvs_rtc.0: rtc core: registered snvs_rtc as rtc0
+			i2c /dev entries driver
+			Linux video capture interface: v2.00
+			mxc_v4l2_output mxc_v4l2_output.0: V4L2 device registered as video16
+			mxc_v4l2_output mxc_v4l2_output.0: V4L2 device registered as video17
+			mxc_v4l2_output mxc_v4l2_output.0: V4L2 device registered as video18
+			mxc_v4l2_output mxc_v4l2_output.0: V4L2 device registered as video19
+			mxc_v4l2_output mxc_v4l2_output.0: V4L2 device registered as video20
+			mag3110 2-000e: check mag3110 chip ID
+			input: mag3110 as /devices/virtual/input/input2
+			mag3110 2-000e: mag3110 is probed
+			i2c-core: driver [mag3110] using legacy suspend method
+			i2c-core: driver [mag3110] using legacy resume method
+			input: mma845x as /devices/virtual/input/input3
+			imx2-wdt imx2-wdt.0: IMX2+ Watchdog Timer enabled. timeout=60s (nowayout=1)
+			Bluetooth: Virtual HCI driver ver 1.3
+			Bluetooth: HCI UART driver ver 2.2
+			Bluetooth: HCIATH3K protocol initialized
+			Bluetooth: Generic Bluetooth USB driver ver 0.6
+			usbcore: registered new interface driver btusb
+			sdhci: Secure Digital Host Controller Interface driver
+			sdhci: Copyright(c) Pierre Ossman
+			mmc0: SDHCI controller on platform [sdhci-esdhc-imx.3] using DMA
+			mmc1: SDHCI controller on platform [sdhci-esdhc-imx.1] using DMA
+			mmc2: SDHCI controller on platform [sdhci-esdhc-imx.2] using DMA
+			mxc_vdoa mxc_vdoa: i.MX Video Data Order Adapter(VDOA) driver probed
+			VPU initialized
+			mxc_asrc registered
+			Galcore version 4.6.9.6622
+			Thermal calibration data is 0x5544ad7d
+			Thermal sensor with ratio = 175
+			Anatop Thermal registered as thermal_zone0
+			anatop_thermal_probe: default cooling device is cpufreq!
+			usbcore: registered new interface driver usbhid
+			usbhid: USB HID core driver
+			usbcore: registered new interface driver snd-usb-audio
+			mxc_hdmi_soc mxc_hdmi_soc.0: MXC HDMI Audio
+			Cirrus Logic CS42888 ALSA SoC Codec Driver
+			i2c-core: driver [cs42888] using legacy suspend method
+			i2c-core: driver [cs42888] using legacy resume method
+			imx-hdmi-soc-dai imx-hdmi-soc-dai.0: Failed: Load HDMI-video first.
+			mmc0: new high speed DDR MMC card at address 0001
+			mmcblk0: mmc0:0001 SEM08G 7.39 GiB
+			mmcblk0boot0: mmc0:0001 SEM08G partition 1 1.00 MiB
+			mmcblk0boot1: mmc0:0001 SEM08G partition 2 1.00 MiB
+			 mmcblk0: unknown partition table
+			 mmcblk0boot1: unknown partition table
+			 mmcblk0boot0: unknown partition table
+			wm8962 0-001a: customer id 0 revision D
+			input: WM8962 Beep Generator as /devices/platform/imx-i2c.0/i2c-0/0-001a/input/input4
+			asoc: wm8962 <-> imx-ssi.1 mapping ok
+			input: wm8962-audio DMIC as /devices/platform/soc-audio.5/sound/card0/input5
+			input: wm8962-audio Ext Spk as /devices/platform/soc-audio.5/sound/card0/input6
+			imx_3stack asoc driver
+			Initialize HDMI-audio failed. Load HDMI-video first!
+			ALSA device list:
+			  #0: wm8962-audio
+			NET: Registered protocol family 26
+			TCP cubic registered
+			NET: Registered protocol family 17
+			can: controller area network core (rev 20090105 abi 8)
+			NET: Registered protocol family 29
+			can: raw protocol (rev 20090105)
+			can: broadcast manager protocol (rev 20090105 t)
+			Bluetooth: RFCOMM TTY layer initialized
+			Bluetooth: RFCOMM socket layer initialized
+			Bluetooth: RFCOMM ver 1.11
+			Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+			Bluetooth: BNEP filters: protocol multicast
+			Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+			lib80211: common routines for IEEE802.11 drivers
+			VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
+			Bus freq driver module loaded
+			Bus freq driver Enabled
+			mxc_dvfs_core_probe
+			DVFS driver module loaded
+			regulator_init_complete: PFUZE100_VGEN6: incomplete constraints, leaving on
+			regulator_init_complete: PFUZE100_VGEN3: incomplete constraints, leaving on
+			regulator_init_complete: PFUZE100_VGEN2: incomplete constraints, leaving on
+			regulator_init_complete: PFUZE100_VGEN1: incomplete constraints, leaving on
+			snvs_rtc snvs_rtc.0: setting system clock to 1970-01-01 00:25:44 UTC (1544)
+			VFS: Cannot open root device "mtdblock2" or unknown-block(0,0)
+			Please append a correct "root=" boot option; here are the available partitions:
+			b300         7757824 mmcblk0  driver: mmcblk
+			b310            1024 mmcblk0boot1  (driver?)
+			b308            1024 mmcblk0boot0  (driver?)
+			Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)
+			[<80048854>] (unwind_backtrace+0x0/0xf8) from [<8050ac74>] (panic+0x74/0x18c)
+			[<8050ac74>] (panic+0x74/0x18c) from [<80008ce8>] (mount_block_root+0x170/0x224)
+			[<80008ce8>] (mount_block_root+0x170/0x224) from [<80008e84>] (mount_root+0xe8/0x108)
+			[<80008e84>] (mount_root+0xe8/0x108) from [<80008fc4>] (prepare_namespace+0x120/0x178)
+			[<80008fc4>] (prepare_namespace+0x120/0x178) from [<800089b0>] (kernel_init+0x108/0x13c)
+			[<800089b0>] (kernel_init+0x108/0x13c) from [<80042aa4>] (kernel_thread_exit+0x0/0x8)
+			CPU1: stopping
+			[<80048854>] (unwind_backtrace+0x0/0xf8) from [<8003c324>] (do_IPI+0x150/0x17c)
+			[<8003c324>] (do_IPI+0x150/0x17c) from [<80041a0c>] (__irq_svc+0x4c/0xe8)
+			Exception stack(0xbffadf90 to 0xbffadfd8)
+			df80:                                     80afb380 80000093 00000001 00000000
+			dfa0: bffac000 80af3f24 80aa5a70 80513180 80aa8e7c 412fc09a 00000000 00000000
+			dfc0: 00000000 bffadfd8 8005076c 80042b04 40000013 ffffffff
+			[<80041a0c>] (__irq_svc+0x4c/0xe8) from [<80042b04>] (default_idle+0x24/0x28)
+			[<80042b04>] (default_idle+0x24/0x28) from [<80042d20>] (cpu_idle+0xe0/0x124)
+			[<80042d20>] (cpu_idle+0xe0/0x124) from [<10507ab4>] (0x10507ab4)
+			CPU2: stopping
+			[<80048854>] (unwind_backtrace+0x0/0xf8) from [<8003c324>] (do_IPI+0x150/0x17c)
+			[<8003c324>] (do_IPI+0x150/0x17c) from [<80041a0c>] (__irq_svc+0x4c/0xe8)
+			Exception stack(0xbffb5ef0 to 0xbffb5f38)
+			5ee0:                                     bffb5f38 0000000a 00000000 00000002
+			5f00: 00000202 bffb4000 bffb4000 00000000 80af9a20 00000002 80a92040 00000000
+			5f20: 80048154 bffb5f38 8007ba90 8007b4f4 20000113 ffffffff
+			[<80041a0c>] (__irq_svc+0x4c/0xe8) from [<8007b4f4>] (__do_softirq+0x4c/0x140)
+			[<8007b4f4>] (__do_softirq+0x4c/0x140) from [<8007ba90>] (irq_exit+0x94/0x9c)
+			[<8007ba90>] (irq_exit+0x94/0x9c) from [<8003c2e0>] (do_IPI+0x10c/0x17c)
+			[<8003c2e0>] (do_IPI+0x10c/0x17c) from [<80041a0c>] (__irq_svc+0x4c/0xe8)
+			Exception stack(0xbffb5f90 to 0xbffb5fd8)
+			5f80:                                     80afb380 80000093 00000001 00000000
+			5fa0: bffb4000 80af3f24 80aa5a70 80513180 80aa8e7c 412fc09a 00000000 00000000
+			5fc0: 00000000 bffb5fd8 8005076c 80042b04 40000013 ffffffff
+			[<80041a0c>] (__irq_svc+0x4c/0xe8) from [<80042b04>] (default_idle+0x24/0x28)
+			[<80042b04>] (default_idle+0x24/0x28) from [<80042d20>] (cpu_idle+0xe0/0x124)
+			[<80042d20>] (cpu_idle+0xe0/0x124) from [<10507ab4>] (0x10507ab4)
+			CPU3: stopping
+			[<80048854>] (unwind_backtrace+0x0/0xf8) from [<8003c324>] (do_IPI+0x150/0x17c)
+			[<8003c324>] (do_IPI+0x150/0x17c) from [<80041a0c>] (__irq_svc+0x4c/0xe8)
+			Exception stack(0xbff01ef0 to 0xbff01f38)
+			1ee0:                                     bff01f38 0000000a 00000000 00000003
+			1f00: 00000282 bff00000 bff00000 00000000 80af9a20 00000003 80a92040 00000000
+			1f20: 80048154 bff01f38 8007ba90 8007b4f4 20000113 ffffffff
+			[<80041a0c>] (__irq_svc+0x4c/0xe8) from [<8007b4f4>] (__do_softirq+0x4c/0x140)
+			[<8007b4f4>] (__do_softirq+0x4c/0x140) from [<8007ba90>] (irq_exit+0x94/0x9c)
+			[<8007ba90>] (irq_exit+0x94/0x9c) from [<8003c2e0>] (do_IPI+0x10c/0x17c)
+			[<8003c2e0>] (do_IPI+0x10c/0x17c) from [<80041a0c>] (__irq_svc+0x4c/0xe8)
+			Exception stack(0xbff01f90 to 0xbff01fd8)
+			1f80:                                     80afb380 60000093 00000001 00000000
+			1fa0: bff00000 80af3f24 80aa5a70 80513180 80aa8e7c 412fc09a 00000000 00000000
+			1fc0: 00000000 bff01fd8 8005076c 80042b04 40000013 ffffffff
+			[<80041a0c>] (__irq_svc+0x4c/0xe8) from [<80042b04>] (default_idle+0x24/0x28)
+			[<80042b04>] (default_idle+0x24/0x28) from [<80042d20>] (cpu_idle+0xe0/0x124)
+			[<80042d20>] (cpu_idle+0xe0/0x124) from [<10507ab4>] (0x10507ab4)
+
+
+2017-09-12
+
+		/home/work/ltib/rpm/BUILD/linux-3.0.35/arch/x86/include/asm/module.h:59:2: error: #error unknown processor family
+		#error unknown processor family
+
+	
+
+		root@freescale /home/user$ insmod hello.ko
+		insmod: can't insert 'hello.ko': invalid module format
+
+
+
+
+		eth0: Freescale FEC PHY driver [Generic PHY] (mii_bus:phy_addr=1:01, irq=-1)
+		PHY: 1:01 - Link is Up - 100/Full
+		IP-Config: Gateway not on directly connected network.
+
+
+
+
+		=======================
+		★从eMMC启动uboot,kernel。从nfs挂载文件系统
+		setenv serverip 192.168.1.15
+		setenv ipaddr 192.168.1.100
+		setenv gatewayip 192.168.1.1
+		setenv bootfile uImage
+		//setenv nfsroot 192.168.1.15:/home/work/nfs
+		setenv nfsroot /home/work/nfs
+		
+		setenv bootargs_base 'setenv bootargs console=ttymxc0,115200'
+		
+		setenv bootargs_nfs 'setenv bootargs ${bootargs} root=/dev/nfs
+			ip=192.168.1.100:192.168.1.15:192.168.1.10:255.255.255.0::eth0=off 
+			nfsroot=192.168.1.15:/home/work/nfs,v3,tcp video=mxcfb1:dev=ldb,LDB-XGA,if=RGB666
+			video=mxcfb0:dev=hdmi,1920x1080M@60,if=RGB24'	
+		
+		setenv bootcmd_net 'run bootargs_base bootargs_nfs;bootm'
+		//setenv bootcmd 'mmc dev 3; mmc read 0x10800000 0x800 0x2000; bootm 0x10800000; run bootcmd_net'
+		setenv bootcmd 'tftp uImage; bootm 0x10800000; run bootcmd_net'
+		
+		saveenv
+		=======================
+	
+
+
+
+
+
+
+
+2017-09-11
+		sudo fdisk /dev/sdb  
+	　　然后如下操作：
+	　　Step1: 通过指令u切换到sectors模式。输入u后回车，fdisk会在sectors模式和cylinders模式间切换，这里切换到sectors模式。
+	　　Step2:通过d指令删除原来的分区。重复的输入d并回车，可以删除SD卡原有的分区，知道没有任何分区为止。
+	　　Step3:通过n指令新建分区。输入n并回车。
+	　　Step4:输入分区编号。这里输入数字1。
+	　　Step5:输入分区的起始位置。该位置是sectors为单位的，每个sector的大小为512B，这里偏移8M，给内核留下足够的存储空间，输入16384并回车。
+	　　Step6:输入分区的结束为止。直接使用默认值，即到达SD卡的末尾，故直接回车即可。
+	　　Step7:保存分区信息。输入指令w并回车。
+	　　这样就完成了SD卡的分区，接下来需要将该分区格式化为ext3或者ext4，指令如下：
+
+		sudo mkfs.ext3 /dev/sdb1  
+		或者  
+		sudo mkfs.ext4 /dev/sdb1
+
+
+2017-09-07
+
+		VFS: Cannot open root device "mmcblk0p1" or unknown-block(179,1)
+		Please append a correct "root=" boot option; here are the available partitions:
+		b300         7757824 mmcblk0  driver: mmcblk
+		b310            1024 mmcblk0boot1  (driver?)
+		b308            1024 mmcblk0boot0  (driver?)
+		Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(179,1)
+
+		
+		
+		
+		VFS: Cannot open root device "mmcblk0p1" or unknown-block(179,1)
+		Please append a correct "root=" boot option; here are the available partitions:
+		b300         7757824 mmcblk0  driver: mmcblk
+		b310            1024 mmcblk0boot1  (driver?)
+		b308            1024 mmcblk0boot0  (driver?)
+
+
+
+
+
+
+
+
+
+
+79471dec0c326a7b632af84c30bf4fa8  qt-creator-opensource-linux-x86_64-3.6.0.run
+510305ad6b9ade01e925cefe450963c5  qt-creator-opensource-mac-x86_64-3.6.0.dmg
+6b0052a6d671318fca540a190cacd97d  qt-creator-opensource-src-3.6.0.tar.gz
+ec041e45479ea6143cff970a3fa9086a  qt-creator-opensource-src-3.6.0.zip
+f35ca73c0d7633b3597655f62872cf06  qt-creator-opensource-windows-x86-3.6.0.exe
+
+
+
+
+
+2017-09-01
+		1、
+			MX6Q SABRESD U-Boot > run bootcmd
+			Card did not respond to voltage select!
+			mmc0(part 0) is current device
+
+			MMC read: dev # 0, block # 2048, count 8192 ... Card did not respond to voltage select!
+			MMC: block number 0x2800 exceeds max(0x0)
+			0 blocks read: ERROR
+
+			
+		2、	Hit any key to stop autoboot:  0
+			Card did not respond to voltage select!
+			mmc0(part 0) is current device
+
+			MMC read: dev # 0, block # 2048, count 8192 ... Card did not respond to voltage select!
+			MMC: block number 0x2800 exceeds max(0x0)
+			0 blocks read: ERROR
+	
+	
+		3、	MX6Q SABRESD U-Boot > print
+			bootdelay=3
+			baudrate=115200
+			ipaddr=192.168.1.103
+			netmask=255.255.255.0
+			rd_loadaddr=0x11000000
+			netdev=eth0
+			ethprime=FEC0
+			fastboot_dev=mmc3
+			splashimage=0x30000000
+			splashpos=m,m
+			lvds_num=1
+			ethact=FEC0
+			bootargs=console=ttymxc0,115200 androidboot.console=ttymxc0 vmalloc=400M init=/init video=mxcfb0:de
+			v=hdmi,1920x1080M@60,bpp=32 video=mxcfb1:off video=mxcfb2:off fbmem=28M androidboot.hardware=freesc
+			ale
+			serverip=10.192.225.216
+			bootfile=uImage
+			nfsroot=/data/rootfs_home/rootfs_mx6
+			bootcmd_net=run bootargs_base bootargs_nfs;bootm
+			loadaddr=0x80800000
+			bootargs_base=setenv bootargs console=ttymxc0,115200
+			bootargs_mmc=setenv bootargs ${bootargs} root=/dev/mmcblk0p1 rootwait rw max17135:pass=2,vcom=-2030
+			000 video=mxcepdcfb:E060SCM,bpp=16
+			bootcmd_mmc=run bootargs_base bootargs_mmc;mmc dev 0;mmc read ${loadaddr} 0x800 0x2000;bootm
+			bootcmd=run bootcmd_mmc
+			stdin=serial
+			stdout=serial
+			stderr=serial
+			Environment size: 891/8188 bytes
+			MX6Q SABRESD U-Boot >
+
+
+		4、	MX6Q SABRESD U-Boot > mmcinfo
+			Card did not respond to voltage select!
+			Device: FSL_USDHC
+			Manufacturer ID: 0
+			OEM: 0
+			Name: Tran Speed: 0
+			Rd Block Len: 0
+			MMC version 0.0
+			Clock: 400000
+			High Capacity: No
+			Capacity: 0 Bytes
+			Bus Width: 1-bit
+			Current Partition for boot: Not bootable
+			MX6Q SABRESD U-Boot >
+			MX6Q SABRESD U-Boot >
+			
+		5、配置本地的QTcreator 和SublimeText3
+		
+		
+		6、买个USB分线器
+		
+		7、拿一根网线来 试试从nfs启动。
+		
+		
+		./ltib --selectype
+					options
+					[*]boot up with a tty and login
+					(::respawn:/etc/rc.d/rc_mxc.S)
+					
+		
+		MCIMX6Q6AVT10AD
+		SBKP1605
+		MCIMX6Q-SDB
+		
+		
+		obs-sized/ibs-sized的区别
+		
+
+
+
+2017-08-31
+
+		i.MX_6SoloLite_EVK_Linux_User's_Guide.pdf
+		
+		
+2017-08-28:
+		1、
+		rpm: RPM should not be used directly install RPM packages, use Alien instead!
+		rpm: However assuming you know what you are doing...
+		error: Failed dependencies:
+			/bin/bash is needed by gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12-1.i386
+			/bin/sh is needed by gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12-1.i386
+			/usr/bin/perl is needed by gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12-1.i386
+			/usr/bin/pkg-config is needed by gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12-1.i386
+			/work/build/.build/tools/bin/bash is needed by gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12-1.i386
+			ld-linux.so.2 is needed by gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12-1.i386
+			ld-linux.so.2(GLIBC_2.3) is needed by gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12-1.i386
+			libc.so.6(GLIBC_2.0) is needed by gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12-1.i386
+			libc.so.6(GLIBC_2.1) is needed by gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12-1.i386
+			libc.so.6(GLIBC_2.1.3) is needed by gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12-1.i386
+			libc.so.6(GLIBC_2.2) is needed by gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12-1.i386
+			libc.so.6(GLIBC_2.2.3) is needed by gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12-1.i386
+			libc.so.6(GLIBC_2.2.4) is needed by gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12-1.i386
+			libc.so.6(GLIBC_2.3) is needed by gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12-1.i386
+			libdl.so.2(GLIBC_2.0) is needed by gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12-1.i386
+			libdl.so.2(GLIBC_2.1) is needed by gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12-1.i386
+			libexpat.so.1 is needed by gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12-1.i386
+			libm.so.6(GLIBC_2.0) is needed by gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12-1.i386
+			libncursesw.so.5 is needed by gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12-1.i386
+			libz.so.1 is needed by gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12-1.i386
+			
+			solutinon:
+				简单来说，Ubuntu的软件包格式是deb，如果要安装rpm的包，则要先用alien把rpm转换成deb。
+				sudo apt-get install alien #alien默认没有安装，所以首先要安装它
+				sudo alien xxxx.rpm #将rpm转换位deb，完成后会生成一个同名的xxxx.deb
+				sudo dpkg -i xxxx.deb #安装
+				注意，用alien转换的deb包并不能保证100%顺利安装，所以可以找到deb最好直接用deb
+			
+		2、.vimrc
+
+		3、linaro		gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12-1.i386.rpm
+
+		4、samba 		nfs			tftp
+
+		5、	导出ubuntu	文件-->导出为OVF
+			导入ubuntu	文件-->打开
+			
+		6、qt4.8/qt5.7		qt/c++	
+
+		7、图像叠层	C语言界面
+
+		8、	setting_up_LTIB_host.pdf
+			i.MX_6SoloLite_EVK_Linux_User`s_Guide.pdf
+
+			
+		9、	定点数		ADAS	CVBS	LVDS	IoMUX	临界段风险	su密码
+			mPCle	eMMc	iNand
+			天花板协议
+			
+		10、sourceInsight4.0  SN
+
+			solution:
+				SI3US-205035-36448
+		　　　　SI3US-466908-65897
+		　　　　SI3US-368932-59383
+		　　　　SI3US-065458-30661
+		　　　　SI3US-759512-70207
+
+		11、访问网站http://www.misra.org.uk了解MISRAC的发展动向
+
+		12、QTcreator安装不了。  .bin包无法运行。
+				安装好以上内容导出带过来。弄清楚安装的路径之类的 以及 相关配置。
+				继续学习iMX6	主要：配置生成U-boot、kernel。代码的编写。图形界面的写法。qt学习，C++熟悉。！！！
+				
+		13、有个灵巧的窍门: 如果我这样写int realarray[10]; int *array =
+					&realarray[-1]; 我就可以把“array” 当作下标从1 开始的数组。
+	
+
+	
+
+2017-08-29
+
+		1、	iMX6的USB调试用的哪个驱动
+		
+		2、	manufacturing firmware是个什么鬼
+		
+		3、	用SD卡下载并跑起来（SD卡工具）
+		
+		4、	i.MX_6Dual6Quad_SABRE-SD_Linux_User's_Guide.pdf
+		
+		5、	你好，你可以先到飞思卡尔公司的网站上下载最新的文档
+			http://www.freescale.com/zh-Hans/webapp/sps/site/prod_summary.jsp?code=RDIMX6SABREPLAT&amp;fpsp=1&amp;tab=Documentation_Tab
+			、
+			最新的BSP
+			http://www.freescale.com/zh-Hans/webapp/sps/site/prod_summary.jsp?code=RDIMX6SABREPLAT&amp;fpsp=1&amp;tab=Design_Tools_Tab
+			以及DEMO
+
+
+		6、	你编译好以后在ltib目录下有个rootfs的目录，它里面就是你编译好的文件系统
+		
+		
+		
+		
+2017-08-30
+		1、PUTTY !!!
+		
+		2、iMX6的BSP和DEMO到底在哪，急！
+		
+		3、iMX6从SD卡启动并加载kernel ,rootfs
+		
+		4、PC配置QT
+		
+		5、制作ext2文件系统,搞清楚imx6的文件系统是生成在哪的。
+		
+		6、怎样让Ubuntu识别U盘
+		
+	Set up an SD card
+		a.Copying the Boot Loader Image
+			$ sudo dd if=u-boot-mx6sl-evk.bin of=/dev/sdb bs=512 seek=2 skip=2 conv=fsync
+		
+		b.Copying the Kernel Image   
+			sudo dd if=uImage of=/dev/sdb bs=512 seek=2048 conv=fsync
+		
+		c.Copying the Root File System (rootfs)
+			$ sudo fdisk /dev/sdb
+		
+		7、将交叉编译的RPM包转为DEB并跑起来。
+		
+		8、fresscale的交叉编译工具路径
+	/opt/freescale/usr/local/gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12/fsl-linaro-toolchain/bin
+		
+		9、Drivers located at:
+			http://www.ftdichip.com/Products/ICs/FT232R.htm
+			
+		10、在ubuntu上安装putty，并且安装ft232r的串口驱动。在ubuntu上用putty
+				在ubuntu上确认串口驱动。
+		
+		iMX6总结：	SD卡读卡器弄好
+					文件系统搞清楚
+					ubuntu上串口驱动弄好
+					能从SD卡启动开发板
+					
+					继续熟悉iMX6文档：
+						准备从NFS弄这些。
+					
+		

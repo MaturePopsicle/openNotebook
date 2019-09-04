@@ -1,0 +1,63 @@
+
+Bootloader阶段：
+一、初始化RAM
+	一般内核在RAM中运行，所以调用内核之前必须设置和初始化RAM，
+	为调用内核做准备。初始化RAM包括设置CPU控制寄存器参数。
+	
+
+二、初始化串口端口
+	虽然并不是bootloader必须要完成的工作，但是串口输出信息是调试
+	bootloader和内核强力工具，所以一般都会在bootloader的过程中初
+	始化一个串口作为调试端口。
+	
+	
+三、检测处理器类型
+	提供给内核，然后内核根据处理器类型调用相应初始化工作。
+	
+	
+四、设置linux启动参数
+	设置和初始化linux内核启动参数
+	
+	
+五、调用linux内核映像
+
+
+bootloader启动过程
+stage1：
+	基本硬件初始化
+	为加载stage2准备RAM空间
+	拷贝内核映像和文件系统镜像到RAM中
+	设置堆栈指针SP
+	跳到stage2入口点
+stage2：
+	初始化本阶段要使用的硬件设备
+	检测系统的内存映射
+	加载内核映像和文件系统映像
+	设置内核启动参数
+	
+	
+bootloader启动方式
+	网络启动方式：
+		开发板不需要较大存储介质，需要把bootloader安装到板上的eprom或者
+	flash中。bootloader通过以太网接口远程下载内核映像或者文件系统。一般
+	使用TFTP网络协议，还可以通过DHCP方式动态配置IP地址。
+	
+	硬盘启动方式：
+		BIOS	
+		LILO
+		GrandUnifiedBootloader
+		linux系统广泛用的是后两者
+	
+	flash启动方式：
+		NOR Flash支持芯片内执行，不必拷贝到RAM中去。
+		NAND Flash不支持XIP，因此需要拷贝代码到RAM中去，然后跳到RAM中执行。
+		
+		NOR Flash使用最为普遍
+		
+内核：
+	非压缩：Image
+	压缩：zImage
+	
+bootloader将linux内核映像拷贝到RAM后，解压内核映像和初始化，完成剩余的与硬件
+平台相关的初始化工作，再进行一系列与内核相关的初始化之后，调用第一个用户
+进程init进程，并等待用户进程的执行。内核启动完毕。
